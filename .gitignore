@@ -60,3 +60,6 @@ typings/
 # jetbrains
 .idea
 
+# dist directory for compiled/transpiled assets
+dist/
+
