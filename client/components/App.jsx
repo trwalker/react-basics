@@ -6,7 +6,7 @@ class App extends React.Component {
         return (
             <div>
                 <h2>Hello World</h2>
-                <Button title="Go Now, Now Go" />
+                { Button({ title: "Go Now, Now Go"}) }
             </div>
         );
     }
