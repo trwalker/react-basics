@@ -1,9 +1,15 @@
 import React from 'react';
+import Button from './forms/Button.jsx';
 
-export default class App extends React.Component {
+class App extends React.Component {
     render() {
         return (
-          <div>Hello World</div>
+            <div>
+                <h2>Hello World</h2>
+                <Button title="Go Now, Now Go" />
+            </div>
         );
     }
 }
+
+export default App;
