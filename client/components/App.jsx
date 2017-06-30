@@ -1,25 +1,39 @@
 import React from 'react';
+import ProgressBar from './forms/ProgressBar.jsx';
 import Button from './forms/Button.jsx';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { count: 0 };
+        this.state = { progress: 0 };
 
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
         this.setState({
-           count: this.state.count + 1
+            progress: this.state.progress + 1
         });
     };
 
     render() {
         return (
-            <div>
-                <h2>Hello World</h2>
-                { Button({ count: this.state.count, handleClick: this.handleClick }) }
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <h3>Do it, go now, now go...</h3>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col form-group">
+                        { ProgressBar({ progress: this.state.progress }) }
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col form-group">
+                        { Button({ handleClick: this.handleClick }) }
+                    </div>
+                </div>
             </div>
         );
     }

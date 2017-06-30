@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const Button = ({count, handleClick}) => {
+const Button = ({handleClick}) => {
     return (
-        <button onClick={handleClick}>{count}</button>
+        <button className="btn btn-primary btn-block" onClick={handleClick}>+1</button>
     );
 };
 
