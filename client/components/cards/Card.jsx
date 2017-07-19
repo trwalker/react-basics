@@ -4,11 +4,11 @@ const Card = (props) => {
     return (
         <div className="row">
             <div className="col-1">
-                <img src="http://placehold.it/75" />
+                <img width="75" src={props.iconUrl} />
             </div>
-            <div className="col-2">
-                <div>Name...</div>
-                <div>Company...</div>
+            <div className="col-3">
+                <h3>{props.name}</h3>
+                <div>{props.company}</div>
             </div>
         </div>
     );
