@@ -7,32 +7,13 @@ class CardView extends React.Component {
         super(props);
 
         this.state = {
-            cards: [
-                {
-                    key: 0,
-                    name: 'Tim Walker',
-                    company: 'GoDaddy',
-                    iconUrl: 'https://avatars2.githubusercontent.com/u/1594194?v=4'
-                },
-                {
-                    key: 1,
-                    name: 'Maciek Pacut',
-                    company: 'n/a',
-                    iconUrl: 'https://avatars0.githubusercontent.com/u/33384?v=4'
-                },
-                {
-                    key: 2,
-                    name: 'Ber Clausen',
-                    company: 'eventbrite.com',
-                    iconUrl: 'https://avatars0.githubusercontent.com/u/88155?v=4'
-                }
-            ]
+            cards: []
         };
 
-        this.addGitUser = this.addGitUser.bind(this);
+        this.addUserCallback = this.addUserCallback.bind(this);
     }
 
-    addGitUser(userData) {
+    addUserCallback(userData) {
         console.log(userData);
         userData.key = this.state.cards.length;
 
@@ -44,7 +25,7 @@ class CardView extends React.Component {
     render() {
         return (
             <div className="container">
-                <AddGitUser handleSubmit={this.addGitUser} />
+                <AddGitUser addUserCallback={this.addUserCallback} />
                 <CardList cards={this.state.cards} />
             </div>
         );

@@ -8,13 +8,10 @@ class AddGitUser extends React.Component {
             userName: ''
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.addUserClick = this.addUserClick.bind(this);
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-
-
+    addUserClick() {
         const instance = this;
 
         const xhr = new XMLHttpRequest();
@@ -23,7 +20,7 @@ class AddGitUser extends React.Component {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     const userData = JSON.parse(xhr.responseText);
-                    instance.props.handleSubmit({ name: userData.name, company: userData.company, iconUrl: userData.avatar_url });
+                    instance.props.addUserCallback({ name: userData.name, company: userData.company, iconUrl: userData.avatar_url });
                     instance.setState({ userName: ''});
                 } else {
                     console.error(xhr.statusText);
@@ -36,16 +33,27 @@ class AddGitUser extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <input type="text"
-                        value={this.state.userName}
-                        onChange={(event) => this.setState({ userName: event.target.value })}
-                        placeholder="Enter github username"
-                        required/>
-                    <button type="submit">Add Card</button>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="input-group">
+                            <input type="text"
+                                   className="form-control"
+                                   placeholder="Github username"
+                                   aria-describedby="basic-addon2"
+                                   value={this.state.userName}
+                                   onChange={(event) => this.setState({ userName: event.target.value })}
+                                   required />
+                            <span id="basic-addon2" className="input-group-addon">@github.com</span>
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="input-group">
+                            <button className="btn-primary btn-lg btn-block" type="button" onClick={this.addUserClick}>Add User</button>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
         );
     }
 };
