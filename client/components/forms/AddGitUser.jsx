@@ -34,8 +34,8 @@ class AddGitUser extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col-12">
+                <div className="row ">
+                    <div className="col-12" style={{margin: '20px 0'}}>
                         <div className="input-group">
                             <input type="text"
                                    className="form-control"
@@ -47,7 +47,7 @@ class AddGitUser extends React.Component {
                             <span id="basic-addon2" className="input-group-addon">@github.com</span>
                         </div>
                     </div>
-                    <div className="col-12">
+                    <div className="col-12" style={{marginBottom: '20px'}}>
                         <div className="input-group">
                             <button className="btn-primary btn-lg btn-block" type="button" onClick={this.addUserClick}>Add User</button>
                         </div>
